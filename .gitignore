@@ -1,0 +1,9 @@
+# dependencies
+/node_modules
+
+# misc
+.DS_Store
+e2e/.DS_Store
+
+#tests
+cypress/videos

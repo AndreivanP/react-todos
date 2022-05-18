@@ -1,0 +1,16 @@
+name: CI workflow
+
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build-deploy-run-e2e:
+    runs-on: ubuntu-latest
+    steps:
+       - name: Build docker image
+         run: docker-compose -f docker-compose.yml build
+       - name: Create docker containers Cypress runner
+         run: docker-compose -f docker-compose.yml up -d
+       - name: Run e2e tests within cypress container
+         run: docker-compose -f docker-compose.yml exec -T e2e-runner npm run cy:regression
