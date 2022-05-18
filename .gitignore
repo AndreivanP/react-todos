@@ -1,2 +1,6 @@
 # dependencies
-/e2e/node_modules
+/node_modules
+
+# misc
+.DS_Store
+e2e/.DS_Store
