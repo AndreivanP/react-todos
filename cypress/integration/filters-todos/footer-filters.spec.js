@@ -1,15 +1,17 @@
 /// <reference types="cypress" />
 
-import { faker } from '@faker-js/faker';
+import Data from '../../utils/data'
 import * as elements from '../../selectors/global-selectors'
 
 describe('As an user, I want to filter todos so that I can view the filtered todos', () => {
 
   beforeEach(() => {
-    const todosNames = [faker.lorem.words(), faker.lorem.words(), faker.lorem.words(), 
-                        faker.lorem.words(), faker.lorem.words()];
-    const todosIsCompleted = [false, false, true, false, true];
-    cy.addTodoThroughLocalStorage(todosNames, todosIsCompleted);
+    const todoData = [{name: Data.setRandomDesc(), isCompleted: false},
+                      {name: Data.setRandomDesc(), isCompleted: false},
+                      {name: Data.setRandomDesc(), isCompleted: true},
+                      {name: Data.setRandomDesc(), isCompleted: false},
+                      {name: Data.setRandomDesc(), isCompleted: true}]
+    cy.addTodoThroughLocalStorage(todoData);
   })
 
   it('Filter Active todos', () => {
