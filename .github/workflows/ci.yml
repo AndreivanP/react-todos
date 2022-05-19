@@ -2,12 +2,15 @@ name: CI workflow
 
 on:
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build-deploy-run-e2e:
     runs-on: ubuntu-latest
     steps:
+       - uses: actions/checkout@v2
+         with:
+          ref: ${{ github.event.pull_request.head.sha }}
        - name: Build docker image
          run: docker-compose -f docker-compose.yml build
        - name: Create docker containers Cypress runner
