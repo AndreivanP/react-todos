@@ -6,11 +6,11 @@ import * as elements from '../../selectors/global-selectors'
 describe('As an user, I want to filter todos so that I can view the filtered todos', () => {
 
   beforeEach(() => {
-    const todoData = [{name: Data.setRandomDesc(), isCompleted: false},
-                      {name: Data.setRandomDesc(), isCompleted: false},
-                      {name: Data.setRandomDesc(), isCompleted: true},
-                      {name: Data.setRandomDesc(), isCompleted: false},
-                      {name: Data.setRandomDesc(), isCompleted: true}]
+    const todoData = [{ name: Data.setRandomDesc(), isCompleted: false },
+    { name: Data.setRandomDesc(), isCompleted: false },
+    { name: Data.setRandomDesc(), isCompleted: true },
+    { name: Data.setRandomDesc(), isCompleted: false },
+    { name: Data.setRandomDesc(), isCompleted: true }]
     cy.addTodoThroughLocalStorage(todoData);
   })
 

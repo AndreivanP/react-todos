@@ -4,7 +4,6 @@ import * as elements from '../selectors/global-selectors'
 Cypress.Commands.add('addTodoThroughLocalStorage', (todoData) => {
     let arrayTodos = [];
     for(let i = 0; i < todoData.length; i++){
-
         arrayTodos.push({"id": generateKey(), "title": todoData[i].name, "completed": todoData[i].isCompleted})
     }
     window.localStorage.setItem('react-todos', JSON.stringify(arrayTodos));
