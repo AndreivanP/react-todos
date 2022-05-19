@@ -17,13 +17,13 @@ Demo test automation framework using Cypress
 
 # Technicalities
 - The baseUrl used on all the tests across the framework comes from the file "cypress.json".
-- Test cases were built to be independent that means it's possible to run a specific test case without the need to run another test case before. In order to achive this to perform the test setup it was create a localstorage manipalator method which can be found on "support/commands.js".
+- Test cases were built to be independent that means it's possible to run a specific test case without the need to run another test case before. In order to achive this to perform the test setup it was created a localstorage manipulator method which can be found on "support/commands.js".
 - All the "identifiers ids" from the UI are present on the file "selectors/global-selector.js".
 - The test data is created using an external library called "faker-js".
-- It's possible to execute the tests from a docker container. For that there are two files: Dockerfile and docker-compose.yml. In order to build the image you can run "docker-compose -f docker-compose.yml build" and in order to create the container "docker-compose -f docker-compose.yml up -d" and to run all the tests from docker container you can run "docker-compose -f docker-compose.yml exec -T e2e-runner npm run cy:regression". Note that this is optional and it's mandatory to have docker installed on your localhost.
+- It's possible to execute tests from a docker container. For that there are two files: "Dockerfile" and "docker-compose.yml". In order to build the image you can run "docker-compose -f docker-compose.yml build" and in order to create the container run "docker-compose -f docker-compose.yml up -d" and to run all the tests from docker container you can run "docker-compose -f docker-compose.yml exec -T e2e-runner npm run cy:regression". Note that this is optional and it's mandatory to have docker installed on your localhost.
 - There is a github actions workflow which uses the docker setup mentioned above and it is triggered every time a PR is open on main branch.
 
 # Further Improvements
-- Add a report tool such as mochaawesome or allure.
+- Add a report tool such as mochaawesome or allure reports.
 - Create extra tests to increase testing coverage.
-- Some assertions can be done in a better way but due the time constraint were simplified.
+- Some assertions can be done in a better way but due the time constraint they were simplified.
