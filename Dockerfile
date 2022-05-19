@@ -6,6 +6,4 @@ WORKDIR ${WORKDIR}
 
 COPY . ${WORKDIR}/
 
-WORKDIR ${WORKDIR}/e2e
-
 RUN npm install
