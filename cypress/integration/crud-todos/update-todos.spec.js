@@ -14,7 +14,7 @@ describe('As an user, I want to update todos so that I can view the updated todo
         cy.get(elements.listTodo).should('have.class', 'completed');
     });
 
-    it('Set a todo as uncompleted', () => {
+    it('Set a todo as incomplete', () => {
         const todoData = [{name: Data.setRandomDesc(), isCompleted: true}];
 
         cy.addTodoThroughLocalStorage(todoData);

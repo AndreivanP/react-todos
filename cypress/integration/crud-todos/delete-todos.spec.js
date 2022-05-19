@@ -5,7 +5,7 @@ import * as elements from '../../selectors/global-selectors'
 
 describe('As an user, I want to delete todos so that I can remove it from my list', () => {
 
-    it('Delete an uncompleted todo from a list containing a single item', () => {
+    it('Delete an incomplete todo from a list containing a single item', () => {
         const todoData = [{name: Data.setRandomDesc(), isCompleted: false}]
 
         cy.addTodoThroughLocalStorage(todoData);
@@ -34,7 +34,7 @@ describe('As an user, I want to delete todos so that I can remove it from my lis
         cy.get(elements.listTodo).should('have.length', 2);
     });
 
-    it('Delete an uncompleted todo from a list containing four itens', () => {
+    it('Delete an incomplete todo from a list containing four itens', () => {
         const todoData = [{name: Data.setRandomDesc(), isCompleted: true},
                           {name: Data.setRandomDesc(), isCompleted: false},
                           {name: Data.setRandomDesc(), isCompleted: false},
