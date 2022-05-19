@@ -3,5 +3,7 @@ export default {
     listTodo: '.todo-list li',
     toggleComplete: '.toggle',
     toggleCompleteAll: '#toggle-all',
-    newTodo: '.new-todo'
+    newTodo: '.new-todo',
+    filterActive: 'a[href*="active"]',
+    filterCompleted: 'a[href*="completed"]'
 }
