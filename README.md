@@ -1,3 +1,5 @@
+[![E2E tests](https://github.com/AndreivanP/react-todos/actions/workflows/ci.yml/badge.svg)](https://github.com/AndreivanP/react-todos/actions/workflows/ci.yml)
+
 # react-todos
 Demo test automation framework using Cypress
 
@@ -5,10 +7,30 @@ Demo test automation framework using Cypress
 - It's needed to have npm version greater than 8.0.0 installed.
 - It's needed to have node.js version greater than 14.0.0 installed.
 
-# Getting Started
-- Run "npm install" to install all the needed dependencies.
-- Run "npm run cy:regression" to run all the tests on headless mode using Chrome browser.
-- In case you'd like to run using Cypress runner you can do so by running "npx cypress open".
+## Setup
+
+1. Clone and access the cloned repo folder
+
+    `$ git clone git@github.com:AndreivanP/react-todos.git`
+
+2. Install the project dependencies
+
+    `$ npm install`
+
+## CLI commands
+### Tests Execution
+
+Run `npx cypress open`, to open the Cypress Test Runner.
+
+Run `npm run cy:regression` to run all the tests on headless mode using Chrome browser.
+
+### Relevant parameters
+
+* from Cypress
+  * `--browser chrome`, to set browser (default is Electron)
+  * `--headless`, to headless execution (default for Electron)
+  * `--headed`, to non headless execution (default for Chrome/Firefox)
+  * `--spec '<file-path>/test-file.spec.js'`, to run specific test file
 
 # Test Cases
 - All test cases are within "integration" folder. 
