@@ -24,7 +24,7 @@ Run `npx cypress open`, to open the Cypress Test Runner.
 
 Run `npm run cy:regression` to run all the tests on headless mode using Chrome browser.
 
-### Relevant parameters
+### Relevant optional parameters
 
 * from Cypress
   * `--browser chrome`, to set browser (default is Electron)
@@ -35,8 +35,8 @@ Run `npm run cy:regression` to run all the tests on headless mode using Chrome b
 ## Features
 ### Test suite
 
-* [Cypress][tool-cy], to create and run E2E tests
-* [Faker][tool-faker], to generate randon data for tests
+* [Cypress][test-tool], to create and run E2E tests
+* [Faker][data-tool], to generate randon data for tests
 * "App Actions" custom pattern, to organize the test structure
 * Environment config, to run tests in multiple environment. It's possible to have multiple `cypress.json` files.
 
@@ -53,8 +53,12 @@ Run `npm run cy:regression` to run all the tests on headless mode using Chrome b
 - It's possible to execute tests from a docker container. For that there are two files: `Dockerfile` and `docker-compose.yml`. In order to build the image you can run `docker-compose -f docker-compose.yml build` and in order to create the container run `docker-compose -f docker-compose.yml up -d` and to run all the tests from docker container you can run `docker-compose -f docker-compose.yml exec -T e2e-runner npm run cy:regression`. Note that this is optional and it's mandatory to have docker installed on your localhost.
 - There is a github actions workflow which uses the docker setup mentioned above and it is triggered every time a PR is open on main branch.
 
-# Further Improvements
+# Future Improvements
 
-- Add a report tool such as mochaawesome or allure reports.
+- Add a report tool such as mochaawesome.
 - Create extra tests to increase testing coverage.
 - Some assertions can be done in a better way but due the time constraint they were simplified.
+
+<!-- Links list -->
+[test-tool]: https://www.cypress.io/how-it-works
+[data-tool]: https://www.npmjs.com/package/@faker-js/faker
