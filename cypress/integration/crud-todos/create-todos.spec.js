@@ -1,34 +1,38 @@
 /// <reference types="cypress" />
 
-import { faker } from '@faker-js/faker';
+import Data from '../../utils/data'
 import * as elements from '../../selectors/global-selectors'
 
 describe('As an user, I want to create todos so that I can have a list of todos', () => {
-    let todoName = faker.lorem.words();
+    let todoName = Data.setRandomDesc();
 
     beforeEach(() => {
-      cy.visit('/')
+        cy.visit('/')
     })
-  
+
     it('Create five todos in a row when there is no todo added', () => {
         let todoNameFive;
-        for(let i = 0; i < 5; i++){
-            todoNameFive = faker.lorem.words();
-            cy.get(elements.newTodo).type(`${todoNameFive}{enter}`);
+        for (let i = 0; i < 5; i++) {
+            todoNameFive = Data.setRandomDesc();
+            cy.addTodo(todoNameFive);
             cy.get(elements.listTodo)
-                .should('have.length', i+1)
+                .should('have.length', i + 1)
                 .last()
                 .should('have.text', todoNameFive);
         }
     });
 
     it('Add a new todo after set the current items to completed', () => {
-        const todosNames = [faker.lorem.words(), faker.lorem.words(), faker.lorem.words(), 
-            faker.lorem.words(), faker.lorem.words()];
-        const todosIsCompleted = [false, false, true, false, true];
-        cy.addTodoThroughLocalStorage(todosNames, todosIsCompleted);
+        const todoData = [{ name: Data.setRandomDesc(), isCompleted: false },
+        { name: Data.setRandomDesc(), isCompleted: false },
+        { name: Data.setRandomDesc(), isCompleted: true },
+        { name: Data.setRandomDesc(), isCompleted: false },
+        { name: Data.setRandomDesc(), isCompleted: true }]
+
+        cy.addTodoThroughLocalStorage(todoData);
+
         cy.filterCompleted();
-        cy.get(elements.newTodo).type(`${todoName}{enter}`);
+        cy.addTodo(todoName);
         cy.filterActive();
         cy.get(elements.listTodo)
             .last()
@@ -36,14 +40,16 @@ describe('As an user, I want to create todos so that I can have a list of todos'
     })
 
     it('Add a new todo after filter only active items', () => {
-        const todosNames = [faker.lorem.words(), faker.lorem.words(), faker.lorem.words(), 
-            faker.lorem.words(), faker.lorem.words()];
-        const todosIsCompleted = [false, false, true, false, true];
-        cy.addTodoThroughLocalStorage(todosNames, todosIsCompleted);
+        const todoData = [{ name: Data.setRandomDesc(), isCompleted: false },
+        { name: Data.setRandomDesc(), isCompleted: true },
+        { name: Data.setRandomDesc(), isCompleted: false }]
+
+        cy.addTodoThroughLocalStorage(todoData);
+
         cy.filterActive();
-        cy.get(elements.newTodo).type(`${todoName}{enter}`);
+        cy.addTodo(todoName);
         cy.get(elements.listTodo)
-        .last()
-        .should('have.text', todoName);
+            .last()
+            .should('have.text', todoName);
     })
-  })
+})
