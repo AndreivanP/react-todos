@@ -30,5 +30,10 @@ Cypress.Commands.add('updateTodo', (oldName, newName) => {
         .type(`${newName}{enter}`);
 });
 
-
-
+Cypress.Commands.add('deleteTodo', (todoName) => {
+    cy.get(elements.todoListLabel)
+        .contains(todoName)
+        .next()
+        .invoke('show')
+        .click();
+});
