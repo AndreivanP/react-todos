@@ -5,5 +5,6 @@ export default {
     toggleCompleteAll: '#toggle-all',
     newTodo: '.new-todo',
     filterActive: 'a[href*="active"]',
-    filterCompleted: 'a[href*="completed"]'
+    filterCompleted: 'a[href*="completed"]',
+    todoListLabel: '.todo-list li div label'
 }

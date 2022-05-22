@@ -10,7 +10,8 @@ describe('As an user, I want to delete todos so that I can remove it from my lis
 
         cy.addTodoThroughLocalStorage(todoData);
 
-        cy.get(elements.deleteTodo).click({ force: true });
+        cy.deleteTodo(todoData[0].name);
+
         cy.get(elements.listTodo).should('have.length', 0);
     });
 
@@ -19,7 +20,8 @@ describe('As an user, I want to delete todos so that I can remove it from my lis
 
         cy.addTodoThroughLocalStorage(todoData);
 
-        cy.get(elements.deleteTodo).click({ force: true });
+        cy.deleteTodo(todoData[0].name);
+
         cy.get(elements.listTodo).should('have.length', 0);
     });
 
@@ -30,7 +32,8 @@ describe('As an user, I want to delete todos so that I can remove it from my lis
 
         cy.addTodoThroughLocalStorage(todoData);
 
-        cy.get(elements.deleteTodo).first().click({ force: true });
+        cy.deleteTodo(todoData[0].name);
+
         cy.get(elements.listTodo).should('have.length', 2);
     });
 
@@ -42,8 +45,8 @@ describe('As an user, I want to delete todos so that I can remove it from my lis
 
         cy.addTodoThroughLocalStorage(todoData);
 
-        cy.get(elements.deleteTodo).last().click({ force: true });
+        cy.deleteTodo(todoData[3].name);
+
         cy.get(elements.listTodo).should('have.length', 3);
     });
-
-})
+});
